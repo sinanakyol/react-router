@@ -12,7 +12,7 @@ function User() {
     axios(`https://jsonplaceholder.typicode.com/users/${id}`)
       .then((res) => setUser(res.data))
       .finally(() => setLoading(false));
-  }, []);
+  }, [id]);
 
   return (
     <div>
