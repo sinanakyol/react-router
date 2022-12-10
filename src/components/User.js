@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
 import axios from "axios";
 
 function User() {
@@ -18,7 +18,13 @@ function User() {
     <div>
       <h1>User Detail</h1>
       {loading && <div>Loading...</div>}
-      {JSON.stringify(user)}
+      {!loading && <code>{JSON.stringify(user)}</code>}
+      <br />
+      <br />
+
+      <Link to={`/users/${parseInt(id) + 1}`}>
+        Next User ({parseInt(id) + 1})
+      </Link>
     </div>
   );
 }

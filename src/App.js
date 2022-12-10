@@ -1,11 +1,16 @@
 import "./App.css";
 import React from "react";
-import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  NavLink,
+} from "react-router-dom";
 
 import Home from "./components/Home";
 import Users from "./components/Users";
 import About from "./components/About";
-import User from "./components/User";
+import Error404 from "./components/Error404";
 
 function App() {
   return (
@@ -14,13 +19,19 @@ function App() {
         <nav>
           <ul>
             <li>
-              <Link to="/">Home</Link>
+              <NavLink to="/" exact activeClassName="selected">
+                Home
+              </NavLink>
             </li>
             <li>
-              <Link to="/about">About</Link>
+              <NavLink to="/about" activeClassName="selected">
+                About
+              </NavLink>
             </li>
             <li>
-              <Link to="/users">Users</Link>
+              <NavLink to="/users" activeClassName="selected">
+                Users
+              </NavLink>
             </li>
           </ul>
         </nav>
@@ -31,7 +42,7 @@ function App() {
           <Route exact path="/" component={Home} />
           <Route path="/about" component={About} />
           <Route path="/users" component={Users} />
-          <Route path="/user/:id" component={User} />
+          <Route path="*" component={Error404} />
         </Switch>
       </div>
     </Router>
