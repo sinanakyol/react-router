@@ -7,6 +7,7 @@ import {
   NavLink,
 } from "react-router-dom";
 
+// pages
 import Home from "./components/Home";
 import Users from "./components/Users";
 import About from "./components/About";
